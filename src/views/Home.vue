@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <h1>Vuejs Projelerim</h1>
     <div class="projects-grid">
       <div class="project-card" @click="$router.push('/todolist')">
         <h3>TodoList Projesi</h3>
