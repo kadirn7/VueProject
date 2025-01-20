@@ -1,6 +1,6 @@
 <template>
   <header>
-    <h1>Selamlar</h1>
+    <h1>VueJS Projelerim</h1>
   </header>
 </template>
 

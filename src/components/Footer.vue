@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <p>Footer Alanı</p>
+    <p>Tüm hakları saklıdır .(c) -2025 VueJS Projelerim</p>
   </footer>
 </template>
 

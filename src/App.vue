@@ -3,6 +3,7 @@
     <app-header></app-header>
     <nav>
       <router-link to="/">Ana Sayfa</router-link> |
+      <router-link to="/todolist">TodoList</router-link> |
       <router-link to="/about">Hakkımızda</router-link>
     </nav>
     <router-view></router-view>
