@@ -9,9 +9,12 @@ Bu proje, Vue.js kullanılarak geliştirilmiş çeşitli web uygulamalarını i�
 - Görev durumu takibi
 - LocalStorage ile veri saklama
 - Responsive tasarım
-![TodoList](https://github.com/user-attachments/assets/cb65edb6-56b4-46d4-8f10-4793d72d94d1)
 
-
+<details>
+  <summary>📸 Ekran Görüntüsü (görüntülemek için tıklayın)</summary>
+  
+  ![TodoList](https://github.com/user-attachments/assets/cb65edb6-56b4-46d4-8f10-4793d72d94d1)
+</details>
 
 ### ⏲️ Pomodoro Timer
 - Özelleştirilebilir çalışma ve mola süreleri
