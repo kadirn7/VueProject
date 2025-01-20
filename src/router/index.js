@@ -6,6 +6,7 @@ import PomodoroTimer from '../views/PomodoroTimer.vue'
 import Calculator from '../views/Calculator.vue'
 import Weather from '../views/Weather.vue'
 import Gallery from '../views/Gallery.vue'
+import Blog from '../views/Blog.vue'
 
 const routes = [
   {
@@ -42,6 +43,11 @@ const routes = [
     path: '/gallery',
     name: 'Gallery',
     component: Gallery
+  },
+  {
+    path: '/blog',
+    name: 'Blog',
+    component: Blog
   }
 ]
 

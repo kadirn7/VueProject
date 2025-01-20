@@ -21,6 +21,10 @@
         <h3>Resim Galerisi</h3>
         <p>Resimlerinizi yükleyip düzenleyebileceğiniz galeri uygulaması</p>
       </div>
+      <div class="project-card" @click="$router.push('/blog')">
+        <h3>Mini Blog</h3>
+        <p>Blog yazılarınızı paylaşabileceğiniz mini blog uygulaması</p>
+      </div>
       <!-- Diğer projeler buraya eklenebilir -->
     </div>
   </div>

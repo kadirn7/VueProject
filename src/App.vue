@@ -9,6 +9,7 @@
         <router-link to="/calculator">Hesap Makinesi</router-link> |
         <router-link to="/weather">Hava Durumu</router-link> |
         <router-link to="/gallery">Galeri</router-link> |
+        <router-link to="/blog">Blog</router-link> |
         <router-link to="/about">Hakkımızda</router-link>
       </nav>
       <router-view></router-view>
