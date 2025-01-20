@@ -17,6 +17,10 @@
         <h3>Hava Durumu</h3>
         <p>Türkiye şehirleri için güncel hava durumu bilgileri</p>
       </div>
+      <div class="project-card" @click="$router.push('/gallery')">
+        <h3>Resim Galerisi</h3>
+        <p>Resimlerinizi yükleyip düzenleyebileceğiniz galeri uygulaması</p>
+      </div>
       <!-- Diğer projeler buraya eklenebilir -->
     </div>
   </div>
