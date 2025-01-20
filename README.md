@@ -10,7 +10,8 @@ Bu proje, Vue.js kullanılarak geliştirilmiş çeşitli web uygulamalarını i�
 - LocalStorage ile veri saklama
 - Responsive tasarım
 
-<img src="screenshots/todolist.png" alt="Todo List Screenshot" width="600"/>
+
+<img src="![TodoList](https://github.com/user-attachments/assets/cb65edb6-56b4-46d4-8f10-4793d72d94d1)" alt="Todo List Screenshot" width="600"/>
 
 ### ⏲️ Pomodoro Timer
 - Özelleştirilebilir çalışma ve mola süreleri
