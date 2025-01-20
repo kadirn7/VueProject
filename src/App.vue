@@ -14,17 +14,23 @@
       <router-view></router-view>
     </div>
     <app-footer></app-footer>
+    <mini-timer></mini-timer>
   </div>
 </template>
 
 <script>
 import Header from './components/Header.vue'
 import Footer from './components/Footer.vue'
+import MiniTimer from './components/pomodoro/MiniTimer.vue'
 
 export default {
   components: {
     "app-header": Header,
-    "app-footer": Footer
+    "app-footer": Footer,
+    "mini-timer": MiniTimer
+  },
+  created() {
+    this.$store.dispatch('initializeStore')
   }
 }
 </script>
@@ -53,5 +59,11 @@ nav a {
 
 nav a.router-link-active {
   color: #42b983;
+}
+
+/* Footer'ın mini-timer'ı engellememesi için */
+.app-footer {
+  position: relative;
+  z-index: 1;
 }
 </style>
