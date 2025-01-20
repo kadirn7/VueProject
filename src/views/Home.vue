@@ -13,6 +13,10 @@
         <h3>Hesap Makinesi</h3>
         <p>Temel matematiksel işlemler için hesap makinesi uygulaması</p>
       </div>
+      <div class="project-card" @click="$router.push('/weather')">
+        <h3>Hava Durumu</h3>
+        <p>Türkiye şehirleri için güncel hava durumu bilgileri</p>
+      </div>
       <!-- Diğer projeler buraya eklenebilir -->
     </div>
   </div>

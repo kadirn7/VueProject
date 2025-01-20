@@ -7,6 +7,7 @@
         <router-link to="/todolist">TodoList</router-link> |
         <router-link to="/pomodoro">Pomodoro</router-link> |
         <router-link to="/calculator">Hesap Makinesi</router-link> |
+        <router-link to="/weather">Hava Durumu</router-link> |
         <router-link to="/about">Hakkımızda</router-link>
       </nav>
       <router-view></router-view>
