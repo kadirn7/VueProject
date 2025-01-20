@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import About from '../views/About.vue'
 import TodoList from '../views/TodoList.vue'
+import PomodoroTimer from '../views/PomodoroTimer.vue'
 
 const routes = [
   {
@@ -18,6 +19,11 @@ const routes = [
     path: '/todolist',
     name: 'TodoList',
     component: TodoList
+  },
+  {
+    path: '/pomodoro',
+    name: 'PomodoroTimer',
+    component: PomodoroTimer
   }
 ]
 

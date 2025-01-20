@@ -5,6 +5,10 @@
         <h3>TodoList Projesi</h3>
         <p>Vue.js ile geliştirilmiş todo list uygulaması</p>
       </div>
+      <div class="project-card" @click="$router.push('/pomodoro')">
+        <h3>Pomodoro Timer</h3>
+        <p>Zaman yönetimi için Pomodoro tekniği uygulaması</p>
+      </div>
       <!-- Diğer projeler buraya eklenebilir -->
     </div>
   </div>
