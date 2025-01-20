@@ -6,8 +6,8 @@
 
     <div class="task-list">
       <TaskItem
-        v-for="(task, index) in tasks"
-        :key="index"
+        v-for="(task, index) in sortedTasks"
+        :key="task.id"
         :task="task"
         @toggle-complete="toggleComplete(index)"
         @update-task="text => updateTask(index, text)"
@@ -32,6 +32,12 @@ export default {
       tasks: []
     }
   },
+  computed: {
+    sortedTasks() {
+      // Görevleri ters çevirerek yeni eklenenler üstte görünsün
+      return [...this.tasks].reverse();
+    }
+  },
   created() {
     // Sayfa yüklendiğinde localStorage'dan verileri al
     const savedTasks = localStorage.getItem('todo-tasks');
@@ -46,21 +52,29 @@ export default {
     },
     addTask(text) {
       this.tasks.push({
+        id: Date.now(), // Benzersiz ID ekle
         text,
-        completed: false
+        completed: false,
+        createdAt: new Date().toISOString() // Oluşturma zamanını kaydet
       });
       this.saveTasks(); // Yeni görev eklendiğinde kaydet
     },
     toggleComplete(index) {
-      this.tasks[index].completed = !this.tasks[index].completed;
+      // reverse() nedeniyle gerçek indeksi hesapla
+      const realIndex = this.tasks.length - 1 - index;
+      this.tasks[realIndex].completed = !this.tasks[realIndex].completed;
       this.saveTasks(); // Görev durumu değiştiğinde kaydet
     },
     updateTask(index, text) {
-      this.tasks[index].text = text;
+      // reverse() nedeniyle gerçek indeksi hesapla
+      const realIndex = this.tasks.length - 1 - index;
+      this.tasks[realIndex].text = text;
       this.saveTasks(); // Görev güncellendiğinde kaydet
     },
     deleteTask(index) {
-      this.tasks.splice(index, 1);
+      // reverse() nedeniyle gerçek indeksi hesapla
+      const realIndex = this.tasks.length - 1 - index;
+      this.tasks.splice(realIndex, 1);
       this.saveTasks(); // Görev silindiğinde kaydet
     }
   }
