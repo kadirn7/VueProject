@@ -1,21 +1,17 @@
 <template>
-  <div>
-    <h1>{{ message }}</h1>
-    <button @click="changeMessage">Change Message</button>
-  </div>
+  
+    <Header></Header>
+    
+  
 </template>
 
 <script>
+import Header from './header.vue';
+
 export default {
-  data() {
-    return {
-      message: 'Hello World'
-    }
-  },
-  methods: {
-    changeMessage() {
-      this.message = 'Hello Vue'
-    }
+  
+  components: {
+    Header
   }
 }
 </script>
