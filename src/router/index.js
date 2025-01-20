@@ -3,6 +3,7 @@ import Home from '../views/Home.vue'
 import About from '../views/About.vue'
 import TodoList from '../views/TodoList.vue'
 import PomodoroTimer from '../views/PomodoroTimer.vue'
+import Calculator from '../views/Calculator.vue'
 
 const routes = [
   {
@@ -24,6 +25,11 @@ const routes = [
     path: '/pomodoro',
     name: 'PomodoroTimer',
     component: PomodoroTimer
+  },
+  {
+    path: '/calculator',
+    name: 'Calculator',
+    component: Calculator
   }
 ]
 

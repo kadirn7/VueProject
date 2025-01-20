@@ -1,13 +1,16 @@
 <template>
   <div id="app">
-    <app-header></app-header>
-    <nav>
-      <router-link to="/">Ana Sayfa</router-link> |
-      <router-link to="/todolist">TodoList</router-link> |
-      <router-link to="/pomodoro">Pomodoro</router-link> |
-      <router-link to="/about">Hakkımızda</router-link>
-    </nav>
-    <router-view></router-view>
+    <div class="content-wrapper">
+      <app-header></app-header>
+      <nav>
+        <router-link to="/">Ana Sayfa</router-link> |
+        <router-link to="/todolist">TodoList</router-link> |
+        <router-link to="/pomodoro">Pomodoro</router-link> |
+        <router-link to="/calculator">Hesap Makinesi</router-link> |
+        <router-link to="/about">Hakkımızda</router-link>
+      </nav>
+      <router-view></router-view>
+    </div>
     <app-footer></app-footer>
   </div>
 </template>
@@ -24,7 +27,17 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-wrapper {
+  flex: 1;
+}
+
 nav {
   padding: 20px;
   text-align: center;
