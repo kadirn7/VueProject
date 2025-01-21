@@ -7,6 +7,7 @@ import Calculator from '../views/Calculator.vue'
 import Weather from '../views/Weather.vue'
 import Gallery from '../views/Gallery.vue'
 import Blog from '../views/Blog.vue'
+import TicTacToe from '../views/TicTacToe.vue'
 
 const routes = [
   {
@@ -48,6 +49,11 @@ const routes = [
     path: '/blog',
     name: 'Blog',
     component: Blog
+  },
+  {
+    path: '/tictactoe',
+    name: 'TicTacToe',
+    component: TicTacToe
   }
 ]
 

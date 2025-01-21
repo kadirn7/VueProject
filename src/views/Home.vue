@@ -25,6 +25,10 @@
         <h3>Mini Blog</h3>
         <p>Blog yazılarınızı paylaşabileceğiniz mini blog uygulaması</p>
       </div>
+      <div class="project-card" @click="$router.push('/tictactoe')">
+        <h3>Tic Tac Toe</h3>
+        <p>İki kişilik klasik XOX oyunu</p>
+      </div>
       <!-- Diğer projeler buraya eklenebilir -->
     </div>
   </div>
