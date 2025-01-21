@@ -1,4 +1,6 @@
 # Vue.js Multi-Project Portfolio 🚀
+![image](https://github.com/user-attachments/assets/ab3c3404-0eed-4c7e-aa47-655d37ff9048)
+
 
 Bu proje, Vue.js kullanılarak geliştirilmiş çeşitli web uygulamalarını içeren bir portföy projesidir. Modern web teknolojilerini ve Vue.js ekosistemini kullanarak geliştirilmiş birden fazla alt projeyi barındırmaktadır.
 
