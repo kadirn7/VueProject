@@ -29,6 +29,10 @@
         <h3>Tic Tac Toe</h3>
         <p>İki kişilik klasik XOX oyunu</p>
       </div>
+      <div class="project-card" @click="$router.push('/2048')">
+        <h3>2048</h3>
+        <p>Klasik 2048 sayı birleştirme oyunu</p>
+      </div>
       <!-- Diğer projeler buraya eklenebilir -->
     </div>
   </div>

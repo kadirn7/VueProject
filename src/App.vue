@@ -11,10 +11,14 @@
         <router-link to="/gallery">Galeri</router-link> |
         <router-link to="/blog">Blog</router-link> |
         <router-link to="/tictactoe">Tic Tac Toe</router-link> |
+        <router-link to="/2048">2048</router-link> |
         <router-link to="/about">Hakkımızda</router-link>
-        
       </nav>
-      <router-view></router-view>
+      <router-view v-slot="{ Component }">
+        <keep-alive>
+          <component :is="Component" />
+        </keep-alive>
+      </router-view>
     </div>
     <app-footer></app-footer>
     <mini-timer></mini-timer>

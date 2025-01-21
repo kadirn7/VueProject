@@ -8,6 +8,7 @@ import Weather from '../views/Weather.vue'
 import Gallery from '../views/Gallery.vue'
 import Blog from '../views/Blog.vue'
 import TicTacToe from '../views/TicTacToe.vue'
+import Game2048 from '../views/Game2048.vue'
 
 const routes = [
   {
@@ -54,6 +55,11 @@ const routes = [
     path: '/tictactoe',
     name: 'TicTacToe',
     component: TicTacToe
+  },
+  {
+    path: '/2048',
+    name: 'Game2048',
+    component: Game2048
   }
 ]
 
