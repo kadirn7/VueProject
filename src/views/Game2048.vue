@@ -44,6 +44,26 @@
       </div>
     </div>
 
+    <!-- Mobil kontroller -->
+    <div class="mobile-controls">
+      <div class="controls-row">
+        <button class="control-btn up" @click="move('up')">
+          <i class="fas fa-chevron-up"></i>
+        </button>
+      </div>
+      <div class="controls-row">
+        <button class="control-btn left" @click="move('left')">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="control-btn down" @click="move('down')">
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <button class="control-btn right" @click="move('right')">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+
     <!-- Oyun Sonu Modal -->
     <div v-if="gameOver" class="game-over-modal" @click="hideGameOver">
       <div class="modal-content">
@@ -251,6 +271,22 @@ export default {
     },
     hideGameOver() {
       this.gameOver = false
+    },
+    move(direction) {
+      switch (direction) {
+        case 'up':
+          this.handleKeyPress({ key: 'ArrowUp' })
+          break
+        case 'down':
+          this.handleKeyPress({ key: 'ArrowDown' })
+          break
+        case 'left':
+          this.handleKeyPress({ key: 'ArrowLeft' })
+          break
+        case 'right':
+          this.handleKeyPress({ key: 'ArrowRight' })
+          break
+      }
     }
   }
 }
@@ -530,5 +566,48 @@ html, body {
   .instructions {
     font-size: 0.8em;
   }
+}
+
+.mobile-controls {
+  display: none; /* Varsayılan olarak gizli */
+  margin-top: 20px;
+  width: 100%;
+  max-width: 200px;
+}
+
+/* Mobil cihazlarda göster */
+@media (max-width: 768px) {
+  .mobile-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+.controls-row {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.control-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background-color: #8f7a66;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.control-btn:active {
+  background-color: #6b5c4c;
+  transform: scale(0.95);
 }
 </style>
