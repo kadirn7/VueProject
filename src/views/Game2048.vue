@@ -1,9 +1,32 @@
 <template>
   <div class="game-container">
+    <div class="game-title">
+      <h1>2048</h1>
+      <div class="game-info">
+        <p>Sayıları birleştirerek 2048'e ulaşın!</p>
+        <div class="instructions">
+          <div class="instruction-item">
+            <span class="key-icon">↑↓←→</span>
+            <span>Yön tuşlarını kullanarak kareleri hareket ettirin</span>
+          </div>
+          <div class="instruction-item">
+            <span class="key-icon">2+2</span>
+            <span>Aynı sayıları birleştirerek ilerleyin</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="header">
       <div class="score-container">
-        <div>Skor: {{ score }}</div>
-        <div>En Yüksek Skor: {{ highScore }}</div>
+        <div class="score-box">
+          <div class="score-label">Skor</div>
+          <div class="score-value">{{ score }}</div>
+        </div>
+        <div class="score-box">
+          <div class="score-label">Rekor</div>
+          <div class="score-value">{{ highScore }}</div>
+        </div>
       </div>
       <button @click="newGame" class="new-game-btn">Yeni Oyun</button>
     </div>
@@ -18,6 +41,17 @@
         >
           {{ cell !== 0 ? cell : '' }}
         </div>
+      </div>
+    </div>
+
+    <!-- Oyun Sonu Modal -->
+    <div v-if="gameOver" class="game-over-modal" @click="hideGameOver">
+      <div class="modal-content">
+        <h2>Oyun Bitti!</h2>
+        <p>Skorunuz: {{ score }}</p>
+        <p v-if="score === highScore && score > 0" class="new-record">Yeni Rekor! 🎉</p>
+        <button @click.stop="newGame" class="new-game-btn">Yeni Oyun</button>
+        <p class="tap-to-close">(Kapatmak için herhangi bir yere tıklayın)</p>
       </div>
     </div>
   </div>
@@ -75,6 +109,9 @@ export default {
     },
     handleKeyPress(event) {
       if (this.gameOver) return
+
+      // Sayfa kaydırmasını engelle
+      event.preventDefault()
 
       let moved = false
       switch (event.key) {
@@ -211,52 +248,157 @@ export default {
     },
     newGame() {
       this.initGame()
+    },
+    hideGameOver() {
+      this.gameOver = false
     }
   }
 }
 </script>
 
 <style scoped>
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100%;
+}
+
 .game-container {
-  max-width: 500px;
+  max-width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #faf8ef;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.game-title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #776e65;
+}
+
+.game-title h1 {
+  font-size: 3em;
+  margin: 0 0 10px 0;
+  font-weight: bold;
+}
+
+.game-info {
+  max-width: 400px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 15px;
+  background-color: #8f7a66;
+  border-radius: 6px;
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.game-info p {
+  margin: 0 0 15px 0;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.instructions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 0.9em;
+}
+
+.instruction-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.key-icon {
+  background-color: #faf8ef;
+  color: #776e65;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+  min-width: 45px;
+  display: inline-block;
+  text-align: center;
 }
 
 .header {
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
 }
 
 .score-container {
+  display: flex;
+  gap: 15px;
+}
+
+.score-box {
+  background-color: #8f7a66;
+  padding: 8px 15px;
+  border-radius: 3px;
+  text-align: center;
+  min-width: 80px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.score-label {
+  color: #eee4da;
+  font-size: 0.9em;
+  margin-bottom: 2px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.score-value {
+  color: white;
   font-size: 1.2em;
+  font-weight: bold;
 }
 
 .new-game-btn {
-  padding: 10px 20px;
-  font-size: 1.1em;
+  padding: 8px 15px;
+  font-size: 1em;
   background-color: #8f7a66;
   color: white;
   border: none;
   border-radius: 3px;
   cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .new-game-btn:hover {
   background-color: #9f8b77;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease;
 }
 
 .grid {
+  width: min(400px, 95vw);
+  aspect-ratio: 1;
   background-color: #bbada0;
-  padding: 10px;
+  padding: 8px;
   border-radius: 6px;
+  margin: 0 auto;
 }
 
 .row {
   display: flex;
-  margin-bottom: 10px;
+  height: calc(25% - 6px);
+  margin-bottom: 8px;
 }
 
 .row:last-child {
@@ -264,17 +406,17 @@ export default {
 }
 
 .cell {
-  width: 80px;
-  height: 80px;
-  margin-right: 10px;
+  width: calc(25% - 6px);
+  height: 100%;
+  margin-right: 8px;
   background-color: rgba(238, 228, 218, 0.35);
   border-radius: 3px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.8em;
   font-weight: bold;
   color: #776e65;
+  font-size: min(1.8em, 5vw);
 }
 
 .cell:last-child {
@@ -292,4 +434,101 @@ export default {
 .value-512 { background-color: #edc850; color: #f9f6f2; font-size: 1.6em; }
 .value-1024 { background-color: #edc53f; color: #f9f6f2; font-size: 1.4em; }
 .value-2048 { background-color: #edc22e; color: #f9f6f2; font-size: 1.4em; }
+
+.game-over-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-in;
+}
+
+.modal-content {
+  background-color: #faf8ef;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  animation: slideIn 0.3s ease-out;
+}
+
+.modal-content h2 {
+  color: #776e65;
+  font-size: 2.5em;
+  margin: 0 0 20px 0;
+}
+
+.modal-content p {
+  color: #776e65;
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+.new-record {
+  color: #f65e3b !important;
+  font-weight: bold;
+  font-size: 1.4em !important;
+}
+
+.tap-to-close {
+  margin-top: 20px;
+  font-size: 0.9em !important;
+  color: #a9a9a9 !important;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-height: 700px) {
+  .cell {
+    width: 60px;
+    height: 60px;
+    font-size: 1.4em;
+  }
+}
+
+@media (max-width: 500px) {
+  .cell {
+    width: calc((100vw - 80px) / 4);
+    height: calc((100vw - 80px) / 4);
+    margin-right: 5px;
+    font-size: 1.4em;
+  }
+  
+  .row {
+    margin-bottom: 5px;
+  }
+
+  .game-title h1 {
+    font-size: 2.5em;
+  }
+
+  .game-info {
+    margin: 0 10px;
+    padding: 10px;
+  }
+
+  .instructions {
+    font-size: 0.8em;
+  }
+}
 </style>
